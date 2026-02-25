@@ -1,0 +1,32 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav mode="side" opened class="sidenav">
+    <mat-toolbar color="primary" class="sidenav-header">
+      <i class="fas fa-heart"></i>
+      <span class="brand-name">LifeHub</span>
+    </mat-toolbar>
+    
+    <mat-nav-list>
+      <a mat-list-item routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        <i class="fas fa-home"></i>
+        <span>Home</span>
+      </a>
+      <a mat-list-item routerLink="/products" routerLinkActive="active">
+        <i class="fas fa-box"></i>
+        <span>Products</span>
+      </a>
+      <a mat-list-item routerLink="/cart" routerLinkActive="active" class="cart-link">
+        <i class="fas fa-shopping-cart"></i>
+        <span>Cart</span>
+        <span class="cart-badge" *ngIf="cartCount > 0">{{ cartCount > 99 ? '99+' : cartCount }}</span>
+      </a>
+      <a mat-list-item routerLink="/checkout" routerLinkActive="active">
+        <i class="fas fa-credit-card"></i>
+        <span>Checkout</span>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>

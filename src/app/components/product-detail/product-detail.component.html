@@ -1,0 +1,33 @@
+<div class="product-detail-page" *ngIf="product">
+  <div class="container">
+    <button mat-button color="primary" (click)="goBack()" class="mb-4">
+      <i class="fas fa-arrow-left me-2"></i>Back to Products
+    </button>
+    
+    <mat-card class="detail-card">
+      <div class="row g-4">
+        <div class="col-md-6">
+          <img [src]="product.image" [alt]="product.name" class="img-fluid rounded">
+        </div>
+        <div class="col-md-6">
+          <mat-card-content>
+            <h1 class="display-4 fw-bold mb-3">{{ product.name }}</h1>
+            <p class="lead text-muted mb-4">{{ product.description }}</p>
+            <div class="price mb-4">₹{{ product.price | number }}</div>
+            <button mat-raised-button color="primary" class="add-to-cart-btn" (click)="addToCart()">
+              <i class="fas fa-shopping-cart me-2"></i>Add to Cart
+            </button>
+          </mat-card-content>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+</div>
+
+<div class="not-found" *ngIf="!product">
+  <div class="container text-center py-5">
+    <i class="fas fa-exclamation-circle"></i>
+    <h2>Product not found</h2>
+    <button mat-raised-button color="primary" (click)="goBack()">Back to Products</button>
+  </div>
+</div>
